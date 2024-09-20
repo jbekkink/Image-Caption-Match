@@ -20,7 +20,7 @@ The (public) output the dApp produces is the similarity score of the image and t
 ```shell
 IMG_NAME=id
 IMG_FROM=${IMG_NAME}:non-tee
-IMG_TO=joeyiexec/${IMG_NAME}:tee
+IMG_TO=_username_/${IMG_NAME}:tee
 ```
 
 2. Run the dapp 
@@ -30,7 +30,7 @@ docker run --rm \
     -v ./iexec_out:/iexec_out \
     -e IEXEC_IN=/iexec_in \
     -e IEXEC_OUT=/iexec_out \
-    DOCKERIMAGENAME "woman and dog sitting on the beach" 
+    DOCKERIMAGENAME:non-tee "woman and dog sitting on the beach" 
 ```
 
 ### Run dapp on iExec
