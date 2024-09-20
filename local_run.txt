@@ -1,0 +1,6 @@
+docker run --rm \
+    -v ~/Documents/ai_usecases/Image-Caption-Match/src/iexec_in:/iexec_in \
+    -v ~/Documents/ai_usecases/Image-Caption-Match/src/iexec_out:/iexec_out \
+    -e IEXEC_IN=/iexec_in \
+    -e IEXEC_OUT=/iexec_out \
+    joeyiexec/id:tee "woman and dog sitting on the beach" 

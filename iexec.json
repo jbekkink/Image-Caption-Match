@@ -1,0 +1,25 @@
+{
+  "description": "My iExec resource description, must be at least 150 chars long in order to pass the validation checks. Describe your application, dataset or workerpool to your users",
+  "license": "MIT",
+  "author": "?",
+  "social": {
+    "website": "?",
+    "github": "?"
+  },
+  "logo": "logo.png",
+  "buyConf": {},
+  "app": {
+    "owner": "0x63D660f0BC8D73C4142e5ba66DB0D8dbf5f29c92",
+    "name": "Image Caption Matcher",
+    "type": "DOCKER",
+    "multiaddr": "registry.hub.docker.com/joeyiexec/id:tee",
+    "checksum": "0xbcc91d5059f685556ec09016a9b8c1c2bc29b7e6a73d8e88ca95d67d823cd642",
+    "mrenclave": {
+      "framework": "SCONE",
+      "version": "v5",
+      "entrypoint": "/root/miniconda/bin/python3.8 /app/main.py",
+      "heapSize": 4610612736,
+      "fingerprint": "d4268f3edff6cd9988fed24e7d52260f76493758cc9be9dd42166354e6803e07"
+    }
+  }
+}

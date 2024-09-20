@@ -4,6 +4,7 @@ from os.path import join
 from similarity_score import SimilarityScore
 import sys 
 
+os.environ['HDF5_USE_FILE_LOCKING'] = 'false'
 input_directory = os.environ["IEXEC_IN"]
 output_directory = os.environ["IEXEC_OUT"]
 
@@ -20,20 +21,23 @@ def writeOutput(score):
         json.dump({ "deterministic-output-path" : output_directory + '/result.txt' }, f)
     return
         
-if __name__ == '__main__':    
-    outputs = ""
-    if len(sys.argv) < 1: 
-        outputs = "No description provided"
+if __name__ == '__main__':  
+    image_path = ""  
+    dirs = ""
 
-    image_path = ""
+    arg = ''
+    for i in range(1, len(sys.argv)): 
+        arg += sys.argv[i] + " "
+    
     for _, image in enumerate(os.listdir(input_directory)):
-        if image.endswith((".jpg", ".JPG")):
-            image_path = join(input_directory, image)
+            if image.startswith("0x"):
+                image_path = join(input_directory, image)
+                break
+
     if image_path == "": 
-        outputs = "No image (jpg) provided"
+        writeOutput("No image found in the input directory" + str(dirs))
     
     else: 
-        description =str(sys.argv[1])
-        outputs = SimilarityScore(image_path, description)
-
-    writeOutput(str(outputs))
+        description = str(arg)
+        outputs = SimilarityScore(image_path, description, output_directory)
+        writeOutput(str(outputs))
